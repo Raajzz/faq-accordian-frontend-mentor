@@ -1,0 +1,70 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap');
+
+.card-container{
+  background: rgb(175,103,233);
+  background: linear-gradient(180deg, rgba(175,103,233,1) 20%, rgba(101,101,231,1) 99%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card{
+  width: 350px;
+  height: 575px;
+  background-color: white;
+  border-radius: 25px;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+.heading{
+  text-align: center;
+  font-weight: 700;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.qna-container{
+  padding: 0 30px;
+  font-size: 12px;
+}
+
+.question-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.down-arrow-container{
+  cursor: pointer;
+}
+
+.down-arrow-icon{
+  align-self: center;
+}
+
+.question{
+  display: block;
+  color: hsl(237, 12%, 33%);
+  font-weight: 700;
+  padding-right: 50px;
+}
+
+.answer{
+  display: block;
+  color: hsl(240, 6%, 50%);
+  line-height: 1.6;
+  padding-right: 50px;
+}
+
+hr{
+  border: none;
+  height: 1.5px;
+  background-color: #e7e7e7;
+  padding: 0 30px;
+}
