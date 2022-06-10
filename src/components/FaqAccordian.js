@@ -2,52 +2,66 @@ import React, { useState } from "react";
 import "./FaqAccordian.css";
 import { qna } from "../assets/qna";
 import iconArrowDown from "../assets/icon-arrow-down.svg";
+// import illusMobile from "../assets/mobile/illustration-woman-online-mobile.svg"
+// import bgPatternMobile from "../assets/mobile/bg-pattern-mobile.svg"
 
 const FaqAccordian = () => {
 	const initialArray = Array(qna.length).fill(false);
 	const [showAccordian, setShowAccordian] = useState(initialArray);
-  
+
 	console.log(showAccordian);
 	return (
 		<>
 			<div className="card-container">
 				<main className="card">
 					{/* image and other stuff */}
-					<div className="image-container"></div>
+					<div className="image-container">
+					</div>
 					<div className="heading">FAQ</div>
 					{/* accordian div */}
-					<div>
+					<div className="qna-wrapper">
 						{qna.map((item, index) => {
 							return (
 								<>
 									<div className="qna-container" key={index}>
-										<div className="question-container">
+										<div
+											className="question-container"
+											onClick={() => {
+												let allElements = [...showAccordian];
+												allElements[index] = !allElements[index];
+												setShowAccordian(allElements);
+											}}
+										>
 											<p
-												className="question"
-												onClick={() => {
-													let allElements = [...showAccordian];
-													allElements[index] = !allElements[index];
-													setShowAccordian(allElements);
-												}}
-                        style={{
-                          cursor: "pointer",
-                        }}
+												className={`question ${
+													showAccordian[index]
+														? "show-margin-utility-question question-bold"
+														: ""
+												}`}
 											>
 												{item.question}
 											</p>
-											<div className="down-arrow-container">
+											<div
+												className={`down-arrow-container
+                      ${showAccordian[index] ? "down-arrow-rotate" : ""}
+											`}
+											>
 												<img
 													src={iconArrowDown}
 													alt="Down Arrow Icon"
-													className="down-arrow-icon"
+													className={`down-arrow-icon`}
 												/>
 											</div>
 										</div>
-										<p className="answer">
+										<p
+											className={`answer ${
+												showAccordian[index] ? "show-margin-utility-answer" : ""
+											}`}
+										>
 											{showAccordian[index] && item.answer}
 										</p>
+										<hr />
 									</div>
-									<hr />
 								</>
 							);
 						})}
