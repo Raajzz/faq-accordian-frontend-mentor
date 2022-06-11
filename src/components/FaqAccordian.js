@@ -15,72 +15,60 @@ const FaqAccordian = () => {
 			<div className="card-container">
 				<main className="card">
 					{/* image and other stuff */}
-					<div className="image-container">
-					</div>
-					<div className="heading">FAQ</div>
-					{/* accordian div */}
 					<div className="qna-wrapper">
-						{qna.map((item, index) => {
-							return (
-								<>
-									<div className="qna-container" key={index}>
-										<div
-											className="question-container"
-											onClick={() => {
-												let allElements = [...showAccordian];
-												allElements[index] = !allElements[index];
-												setShowAccordian(allElements);
-											}}
-										>
+						<div className="heading">FAQ</div>
+
+						{/* accordian div */}
+						<div>
+							{qna.map((item, index) => {
+								return (
+									<>
+										<div className="qna-container" key={index}>
+											<div
+												className="question-container"
+												onClick={() => {
+													let allElements = [...showAccordian];
+													allElements[index] = !allElements[index];
+													setShowAccordian(allElements);
+												}}
+											>
+												<p
+													className={`question ${
+														showAccordian[index]
+															? "show-margin-utility-question question-bold"
+															: ""
+													}`}
+												>
+													{item.question}
+												</p>
+												<div
+													className={`down-arrow-container
+												${showAccordian[index] ? "down-arrow-rotate" : ""}
+											`}
+												>
+													<img
+														src={iconArrowDown}
+														alt="Down Arrow Icon"
+														className={`down-arrow-icon`}
+													/>
+												</div>
+											</div>
 											<p
-												className={`question ${
+												className={`answer ${
 													showAccordian[index]
-														? "show-margin-utility-question question-bold"
+														? "show-margin-utility-answer"
 														: ""
 												}`}
 											>
-												{item.question}
+												{showAccordian[index] && item.answer}
 											</p>
-											<div
-												className={`down-arrow-container
-                      ${showAccordian[index] ? "down-arrow-rotate" : ""}
-											`}
-											>
-												<img
-													src={iconArrowDown}
-													alt="Down Arrow Icon"
-													className={`down-arrow-icon`}
-												/>
-											</div>
+											<hr />
 										</div>
-										<p
-											className={`answer ${
-												showAccordian[index] ? "show-margin-utility-answer" : ""
-											}`}
-										>
-											{showAccordian[index] && item.answer}
-										</p>
-										<hr />
-									</div>
-								</>
-							);
-						})}
+									</>
+								);
+							})}
+						</div>
 					</div>
-					{/* {showAccordian.map((item, index) => {
-						return (
-							<div key={index}>
-								<button
-									onClick={() => {
-										let accordianArray = [...showAccordian];
-										accordianArray[index] = !item;
-										setShowAccordian(accordianArray);
-									}}
-								>
-									{showAccordian[index].toString()}
-								</button>
-							</div>
-						);
-					})} */}
 				</main>
 			</div>
 		</>
@@ -89,6 +77,21 @@ const FaqAccordian = () => {
 
 export default FaqAccordian;
 
+// {showAccordian.map((item, index) => {
+// 	return (
+// 		<div key={index}>
+// 			<button
+// 				onClick={() => {
+// 					let accordianArray = [...showAccordian];
+// 					accordianArray[index] = !item;
+// 					setShowAccordian(accordianArray);
+// 				}}
+// 			>
+// 				{showAccordian[index].toString()}
+// 			</button>
+// 		</div>
+// 	);
+// })}
 // {/* <div className="accordian">
 //   <div className="qna-container">
 //     <div className="question-container">

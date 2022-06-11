@@ -23,7 +23,7 @@
 
 
 .card {
-	width: 350px;
+	width: 355px;
   min-height: 450px;
 	background-color: white;
 	border-radius: 25px;
@@ -72,18 +72,19 @@
 .qna-wrapper{
   z-index: 2;
   position: relative;
-	padding-bottom: 30px;
+	padding-bottom: 50px;
+	margin: 0 auto;
+	width: 80%;
 }
 
 .qna-container {
-	padding: 0 30px;
 	font-size: 12px;
-	cursor: pointer;
 }
 
 .question-container {
 	display: flex;
 	justify-content: space-between;
+	cursor: pointer;
 }
 
 .question-container:hover > .question{
@@ -95,7 +96,6 @@
 .down-arrow-container {
 	display: flex;
 	align-items: center;
-  margin-right: 8px;
 }
 
 .down-arrow-icon {
@@ -110,8 +110,9 @@
 	display: block;
 	color: #6c6d6f;
 	font-weight: 500;
-	padding-right: 50px;
+	padding-right: 30px;
 	margin: 15px 0;
+	font-size: 13.30px;
 }
 
 .question-bold {
@@ -127,7 +128,7 @@
 	display: block;
 	color: hsl(240, 6%, 50%);
 	line-height: 1.6;
-	padding-right: 50px;
+	padding-right: 30px;
 }
 
 .show-margin-utility-answer {
@@ -139,4 +140,40 @@ hr {
 	height: 1.5px;
 	background-color: #e7e7e7;
 	padding: 0 30px;
+}
+
+@media screen and (min-width:768px) {
+	.card{
+		width: 70%;
+		border-radius: 20px;
+	}
+
+	.card::after{
+		background-image: none;
+	}
+
+	.card::before{
+		background-image: none;
+	}
+
+	.heading{
+		text-align: left;
+	}
+
+	.qna-wrapper{
+		width: 55%;
+		margin-left: 50%;
+		padding-right: 20%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.heading{
+		margin: 13% 0 5% 0; 
+	}
+
+	.qna-container{
+		font-size: 14px;
+	}
+
 }
